@@ -1,15 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import HomeContainer from './containers/HomeContainer';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+ReactDOM.render(
+  // <Provider store={store}>
+    <Router>
+      <Routes>
+        <Route exact path="/" component={<HomeContainer/>} />
+        {/* <Route exact path="/notes/:id" component={NoteDetailContainer} />
+        <Route exact path="/notes/edit/:id" component={NoteEditContainer} /> */}
+      </Routes>
+    </Router>
+  /* </Provider>, */,
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  document.getElementById('root')
+)
